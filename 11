@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KuraVita - Promocje</title>
+<title>KuraVita - Sklep</title>
 
 <style>
 body {
@@ -27,6 +27,11 @@ header img {
     max-height: 80px;
 }
 
+.cart {
+    font-size: 18px;
+    font-weight: bold;
+}
+
 /* NAVBAR */
 .navbar {
     background: #2e7d32;
@@ -40,6 +45,7 @@ header img {
     color: white;
     text-decoration: none;
     font-weight: bold;
+    transition: 0.3s;
 }
 
 .navbar a:hover {
@@ -51,7 +57,7 @@ header img {
     display: flex;
     justify-content: center;
     gap: 30px;
-    padding: 40px;
+    padding: 40px 20px;
     flex-wrap: wrap;
 }
 
@@ -59,20 +65,65 @@ header img {
     background: white;
     border-radius: 10px;
     padding: 20px;
-    width: 28px;
+    width: 280px;
     text-align: center;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-.price-old {
-    text-decoration: line-through;
-    color: gray;
+.product img {
+    width: 100%;
+    border-radius: 10px;
 }
 
-.price-new {
-    color: red;
-    font-size: 22px;
+.price {
+    font-size: 20px;
     font-weight: bold;
+    color: #2e7d32;
+}
+
+.stars {
+    color: gold;
+}
+
+button {
+    background: #2e7d32;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: #1b5e20;
+}
+
+/* KOSZYK */
+.cart-box {
+    background: white;
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+/* VIDEO */
+.video-section {
+    text-align: center;
+    padding: 40px;
+}
+
+video {
+    max-width: 80%;
+    border-radius: 10px;
 }
 </style>
 
@@ -82,10 +133,12 @@ header img {
 
 <header>
     <img src="logo.jpg">
+    <div class="cart">🛒 Koszyk: <span id="cart-count">0</span></div>
 </header>
 
+<!-- NOWY PASEK NAWIGACJI -->
+
 <nav class="navbar">
-    <a href="index.html">Sklep</a>
     <a href="11">Promocje</a>
     <a href="#">Rebus</a>
     <a href="#">Blog</a>
@@ -98,19 +151,64 @@ header img {
     <img src="produkt1.jpg">
     <h3>Mieszanka paszowa</h3>
     <p>Wspiera odporność kur</p>
-    <div class="price-old">50 333333333zł</div>
-    <div class="price-new">3533333 zł 🔥</div>
+    <div class="stars">★★★★★</div>
+    <div class="price">50 zł</div>
+    <button onclick="addToCart('Mieszanka paszowa', 50)">Dodaj do koszyka</button>
 </div>
 
 <div class="product">
     <img src="produkt2.jpg">
     <h3>Z pokrzywą i jabłkiem</h3>
     <p>Naturalne wsparcie zdrowia</p>
-    <div class="price-old">50 zł</div>
-    <div class="price-new">39 zł 🔥</div>
+    <div class="stars">★★★★★</div>
+    <div class="price">50 zł</div>
+    <button onclick="addToCart('Z pokrzywą i jabłkiem', 50)">Dodaj do koszyka</button>
 </div>
 
 </section>
+
+<div class="cart-box">
+    <h2>Twój koszyk</h2>
+    <div id="cart-items"></div>
+    <hr>
+    <strong>Suma: <span id="total">0</span> zł</strong>
+</div>
+
+<section class="video-section">
+    <video controls>
+        <source src="Weroniko!.mp4" type="video/mp4">
+    </video>
+</section>
+
+<script>
+let cart = [];
+let total = 0;
+
+function addToCart(name, price) {
+    cart.push({name, price});
+    total += price;
+
+    document.getElementById("cart-count").innerText = cart.length;
+    updateCart();
+}
+
+function updateCart() {
+    const cartItems = document.getElementById("cart-items");
+    cartItems.innerHTML = "";
+
+    cart.forEach((item, index) => {
+        const div = document.createElement("div");
+        div.classList.add("cart-item");
+        div.innerHTML = `
+            <span>${item.name}</span>
+            <span>${item.price} zł</span>
+        `;
+        cartItems.appendChild(div);
+    });
+
+    document.getElementById("total").innerText = total;
+}
+</script>
 
 </body>
 </html>
