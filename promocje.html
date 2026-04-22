@@ -53,52 +53,6 @@ header img {
     color: #c8e6c9;
 }
 
-/* PRODUKTY */
-.products {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    padding: 40px 20px;
-    flex-wrap: wrap;
-}
-
-.product {
-    background: white;
-    border-radius: 10px;
-    padding: 20px;
-    width: 280px;
-    text-align: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.product img {
-    width: 100%;
-    border-radius: 10px;
-}
-
-.price {
-    font-size: 20px;
-    font-weight: bold;
-    color: #2e7d32;
-}
-
-.stars {
-    color: gold;
-}
-
-button {
-    background: #2e7d32;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 6px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-button:hover {
-    background: #1b5e20;
-}
 
 /* KOSZYK */
 .cart-box {
@@ -146,34 +100,7 @@ video {
     <a href="#">O nas</a>
 </nav>
 
-<section class="products">
 
-<div class="product">
-    <img src="produkt1.jpg">
-    <h3>Mieszanka paszowa</h3>
-    <p>Wspiera odporność kur</p>
-    <div class="stars">★★★★★</div>
-    <div class="price">50 zł</div>
-    <button onclick="addToCart('Mieszanka paszowa', 50)">Dodaj do koszyka</button>
-</div>
-
-<div class="product">
-    <img src="produkt2.jpg">
-    <h3>Z pokrzywą i jabłkiem</h3>
-    <p>Naturalne wsparcie zdrowia</p>
-    <div class="stars">★★★★★</div>
-    <div class="price">50 zł</div>
-    <button onclick="addToCart('Z pokrzywą i jabłkiem', 50)">Dodaj do koszyka</button>
-</div>
-
-</section>
-
-<div class="cart-box">
-    <h2>Twój koszyk</h2>
-    <div id="cart-items"></div>
-    <hr>
-    <strong>Suma: <span id="total">0</span> zł</strong>
-</div>
 
 <section class="video-section">
     <video controls>
