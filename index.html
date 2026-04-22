@@ -1,192 +1,99 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KuraVita - Sklep</title>
+    <meta charset="UTF-8">
+    <title>Kura Vita</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #fff8dc;
+        }
 
-<style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
+        header {
+            background-color: #f4a261;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
 
-</body>
-}
+        nav {
+            background-color: #e76f51;
+            padding: 10px;
+            text-align: center;
+        }
 
-/* HEADER */
-header {
-    background: white;
-    padding: 0px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
 
-header img {
-    max-height: 200px;
-}
- {   <body>
+        nav a:hover {
+            text-decoration: underline;
+        }
 
-<nav>
-    <a href="promocje.html">Promocje</a> |
-    <a href="rebus.html">Rebus</a> |
-    <a href="blog.html">Blog</a> |
-    <a href="o-nas.html">O nas</a>
-</nav>
+        .banner {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
 
-</body>}
+        main {
+            padding: 20px;
+            text-align: center;
+        }
 
-.cart {
-    font-size: 18px;
-    font-weight: bold;
-}
+        .gallery img {
+            width: 250px;
+            margin: 10px;
+            border-radius: 10px;
+        }
 
-/* PRODUKTY */
-.products {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    padding: 40px 20px;
-    flex-wrap: wrap;
-}
-
-.product {
-    background: white;
-    border-radius: 10px;
-    padding: 20px;
-    width: 280px;
-    text-align: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.product img {
-    width: 100%;
-    border-radius: 10px;
-}
-
-.price {
-    font-size: 20px;
-    font-weight: bold;
-    color: #2e7d32;
-}
-
-.stars {
-    color: gold;
-}
-
-button {
-    background: #2e7d32;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 6px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-button:hover {
-    background: #1b5e20;
-}
-
-/* KOSZYK */
-.cart-box {
-    background: white;
-    margin: 20px auto;
-    padding: 20px;
-    max-width: 500px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.cart-item {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-}
-
-/* VIDEO */
-.video-section {
-    text-align: center;
-    padding: 40px;
-}
-
-video {
-    max-width: 80%;
-    border-radius: 10px;
-}
-</style>
+        footer {
+            background-color: #264653;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
 </head>
-
 <body>
 
 <header>
-    <img src="logo.jpg">
-    <div class="cart">🛒 Koszyk: <span id="cart-count">0</span></div>
+    <h1>Kura Vita 🐔</h1>
+    <p>Zdrowie i natura w jednym miejscu</p>
 </header>
 
-<section class="products">
+<nav>
+    <a href="promocje.html">Promocje</a>
+    <a href="rebus.html">Rebus</a>
+    <a href="blog.html">Blog</a>
+    <a href="o-nas.html">O nas</a>
+</nav>
 
-<div class="product">
-    <img src="produkt1.jpg">
-    <h3>Mieszanka paszowa</h3>
-    <p>Wspiera odporność kur</p>
-    <div class="stars">★★★★★</div>
-    <div class="price">50 zł</div>
-    <button onclick="addToCart('Produkt 1', 50)">Dodaj do koszyka</button>
-</div>
+<!-- BANER -->
+<img src="images/kura-banner.jpg" alt="Kura Vita baner" class="banner">
 
-<div class="product">
-    <img src="produkt2.jpg">
-    <h3>Z pokrzywą i jabłkiem</h3>
-    <p>Naturalne wsparcie zdrowia</p>
-    <div class="stars">★★★★★</div>
-    <div class="price">50 zł</div>
-    <button onclick="addToCart('Produkt 2', 50)">Dodaj do koszyka</button>
-</div>
+<main>
+    <h2>Witamy na stronie Kura Vita!</h2>
+    <p>Naturalne produkty, zdrowa żywność i dobra energia 🥚🌿</p>
 
-</section>
+    <!-- GALERIA -->
+    <div class="gallery">
+        <img src="images/jajka.jpg" alt="Świeże jajka">
+        <img src="images/kury.jpg" alt="Kury na farmie">
+        <img src="images/farma.jpg" alt="Nasza farma">
+    </div>
+</main>
 
-<div class="cart-box">
-    <h2>Twój koszyk</h2>
-    <div id="cart-items"></div>
-    <hr>
-    <strong>Suma: <span id="total">0</span> zł</strong>
-</div>
-
-<section class="video-section">
-    <video controls>
-        <source src="film.mp4" type="video/mp4">
-    </video>
-</section>
-
-<script>
-let cart = [];
-let total = 0;
-
-function addToCart(name, price) {
-    cart.push({name, price});
-    total += price;
-
-    document.getElementById("cart-count").innerText = cart.length;
-    updateCart();
-}
-
-function updateCart() {
-    const cartItems = document.getElementById("cart-items");
-    cartItems.innerHTML = "";
-
-    cart.forEach(item => {
-        const div = document.createElement("div");
-        div.classList.add("cart-item");
-        div.innerHTML = `<span>${item.name}</span><span>${item.price} zł</span>`;
-        cartItems.appendChild(div);
-    });
-
-    document.getElementById("total").innerText = total;
-}
-</script>
+<footer>
+    <p>&copy; 2026 Kura Vita</p>
+</footer>
 
 </body>
 </html>
