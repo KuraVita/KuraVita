@@ -7,6 +7,32 @@
 <title>KuraVita - Sklep</title>
 
 <style>
+    .menu-bar {
+  background-color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+.menu-bar a {
+  margin: 0 20px;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.menu-bar a:hover {
+  color: green;
+}
+
+.banner {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.banner img {
+  max-width: 100%;
+  height: auto;
+}
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -133,17 +159,28 @@ video {
 
 <header>
     <img src="logo.jpg">
+  <div class="banner">
+  <img src="baner.png" alt="Baner">
+</div>
     <div class="cart">🛒 Koszyk: <span id="cart-count">0</span></div>
 </header>
+  
 
 <!-- NOWY PASEK NAWIGACJI -->
 
 <nav class="navbar">
-    <a href="11">Promocje</a>
-    <a href="#">Rebus</a>
+    <a href="11.html">Promocje</a>
+    <a href="rebus.html">Rebus</a>
     <a href="#">Blog</a>
     <a href="#">O nas</a>
 </nav>
+<section id="promocje">
+  <h2>Promocje</h2>
+  <video controls width="600">
+    <source src="film1.mp4" type="video/mp4">
+    
+  </video>
+</section>
 
 <section class="products">
 
